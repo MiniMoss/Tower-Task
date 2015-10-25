@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  event_type: MyString
+  event_time: 2015-10-25 14:56:39
+  event_creator: MyString
+  event_topic: MyString
+
+two:
+  event_type: MyString
+  event_time: 2015-10-25 14:56:39
+  event_creator: MyString
+  event_topic: MyString
