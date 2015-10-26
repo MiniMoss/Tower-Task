@@ -28,6 +28,6 @@ def random_topic
   return random_topic
 end
 
-for i in 1..200
+for i in 1..100
   Event.create!({event_type: event_type_pool.sample, event_time: random_datetime(), event_creator: event_creator_pool.sample, event_topic: random_topic()})
 end

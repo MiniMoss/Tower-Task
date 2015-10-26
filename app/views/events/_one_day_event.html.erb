@@ -1,0 +1,18 @@
+<div class="one-day-events col-lg-12 col-md-12" style="margin-bottom: 100px;padding-left: 0;padding-right: 0;">
+  <div class="devider">
+    <div class="date col-lg-2 col-md-2" style="font-size: 20px;margin-top: 4px;color: #2F79B9;">
+      <%= @one_day_events[0].strftime('%m/%d') %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%= @one_day_events[0].strftime('%a') %>
+    </div>
+    <div class="hr col-lg-7 col-md-7"><hr></div>
+    <div class="project col-lg-3 col-md-3" style="font-size: 20px;margin-top: 4px;"><a href="#">项目名称</a></div>
+  </div>
+  <!-- 按时间倒序排列事件 -->
+  <% @one_day_events[1].sort_by(&:event_time).reverse.map do |event| %>
+    <div class="events col-lg-10 col-md-10 col-lg-offset-1 col-md-offset-1" style="margin-top: 10px;font-size: 18px;">
+      <div class="time col-lg-1 col-md-1"><%= event.event_time.strftime('%H:%M') %></div>
+      <div class="creator col-lg-1 col-md-1"><%= event.event_creator %></div>
+      <div class="event-type-description col-lg-4 col-md-4"><%= event.event_type %></div>
+      <div class="event-topic col-lg-6 col-md-6"><%= event.event_topic %></div>
+    </div>
+  <% end %>
+</div>
