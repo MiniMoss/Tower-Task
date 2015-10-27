@@ -2,21 +2,26 @@ class EventsController < ApplicationController
   def index
     # 获取所有event，并根据日期分组
     events_group_by_date = Event.all.group_by{ |u| u.event_time.to_date }
-    # 根据日期，按照倒序排列event
+
+    # 根据日期，按照倒序排列动态记录
     @events_arr_sorted = events_group_by_date.sort_by { |k,v| k }.reverse
-    # 按时间倒序获取所有events组成array
+
+    # 按时间倒序获取所有events组成array，用于确定分页页数的数据 @pagenate_arr
     events = Array.new
     @events_arr_sorted.map do |e_one_day|
+      # 按照时间先后顺序排列所有动态记录
       e_one_day[1].sort_by(&:event_time).reverse.map do |e|
         events << e
       end
     end
     @pagenate_arr = Kaminari.paginate_array(events).page(params[:page]).per(50)
-    # 利用kaminari分页加载数据，每页加载50条，根据分页分组数据
+
+    # 利用kaminari分页加载数据，每页加载50条，组织每页用于展示的数据 @events_arr
+    @events_arr = Array.new
     num_of_pages = @pagenate_arr.num_pages
     events_arr_per_page = Array.new()
     events_sort_by_date_per_page = Array.new()
-    @events_arr = Array.new
+
     for i in 1..num_of_pages
       j = i - 1
       if i < num_of_pages
@@ -29,5 +34,4 @@ class EventsController < ApplicationController
       @events_arr[j]  = events_sort_by_date_per_page[j].sort_by { |k,v| k }.reverse
     end
   end
-
 end
