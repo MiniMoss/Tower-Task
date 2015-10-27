@@ -5,7 +5,7 @@
         动态页面Demo
       </div>
     </div>
-    <div class="row sort-user">
+    <!--     <div class="row sort-user">
       <div class="col-lg-2 col-md-2" style="font-size: 20px;margin-top: 4px;">筛选动态</div>
       <div class="dropdown col-lg-2 col-md-2" style="padding-left: 0px;">
         <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
@@ -18,12 +18,13 @@
           <li><a href="#">user2</a></li>
         </ul>
       </div>
-    </div>
+    </div> -->
     <div class="row events-gallary" style="margin-top: 50px;">
-      <% @events_arr.map do |one_day_events| %>
+      <% @events_arr[@pagenate_arr.current_page - 1].map do |one_day_events| %>
         <% @one_day_events = one_day_events %>
         <%= render partial: 'one_day_event', object: @one_day_events %>
       <% end %>
     </div>
+    <div class="row"><%= paginate @pagenate_arr %></div>
   </div>
 </div>

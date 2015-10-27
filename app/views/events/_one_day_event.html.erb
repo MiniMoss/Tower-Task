@@ -12,7 +12,7 @@
       <div class="time col-lg-1 col-md-1"><%= event.event_time.strftime('%H:%M') %></div>
       <div class="creator col-lg-1 col-md-1"><%= event.event_creator %></div>
       <div class="event-type-description col-lg-5 col-md-5"><%= event_type_description(event.event_type) %></div>
-      <div class="event-topic col-lg-5 col-md-5"><%= event.event_topic %></div>
+      <div class="event-topic col-lg-5 col-md-5">任务名称<%= event.event_topic %></div>
     </div>
     <div class="row col-lg-12 col-md-12" style="margin-top: 5px;margin-bottom:10px;font-size: 15px;margin-left: 5%;margin-right: 5%;color: gray;">
       <div class="comment col-lg-10 col-md-10 col-lg-offset-2 col-md-offset-2">
