@@ -8,11 +8,16 @@
   </div>
   <!-- 按时间倒序排列事件 -->
   <% @one_day_events[1].sort_by(&:event_time).reverse.map do |event| %>
-    <div class="events col-lg-10 col-md-10 col-lg-offset-1 col-md-offset-1" style="margin-top: 10px;font-size: 18px;">
+    <div class="row events col-lg-12 col-md-12" style="margin-top:10px;font-size: 15px;margin-left: 5%;margin-right: 5%;">
       <div class="time col-lg-1 col-md-1"><%= event.event_time.strftime('%H:%M') %></div>
       <div class="creator col-lg-1 col-md-1"><%= event.event_creator %></div>
-      <div class="event-type-description col-lg-4 col-md-4"><%= event.event_type %></div>
-      <div class="event-topic col-lg-6 col-md-6"><%= event.event_topic %></div>
+      <div class="event-type-description col-lg-5 col-md-5"><%= event_type_description(event.event_type) %></div>
+      <div class="event-topic col-lg-5 col-md-5"><%= event.event_topic %></div>
+    </div>
+    <div class="row col-lg-12 col-md-12" style="margin-top: 5px;margin-bottom:10px;font-size: 15px;margin-left: 5%;margin-right: 5%;color: gray;">
+      <div class="comment col-lg-10 col-md-10 col-lg-offset-2 col-md-offset-2">
+        <%= "评论内容 bla bla bla bla" if event.event_type == "event_comment" %>
+      </div>
     </div>
   <% end %>
 </div>
