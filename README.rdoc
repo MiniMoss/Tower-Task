@@ -1,28 +1,19 @@
-== README
+== Event Demo配置运行说明
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+* Ruby版本 ruby 2.1.1， Rails版本 rails 4.2.3
 
-Things you may want to cover:
+* 数据库使用MySQL，建立名为TowerTask_development的数据库，具体数据库配置见database.yml
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
+* 初始化程序 
+  </br>
+  rake db:migrate    建立数据表
+  </br>
+  rake db:seeds      初始化events表数据
+* 运行程序
+  </br>
+  rails server 
+  </br>
+  路由表已经把event_controller#index页面配置为root，地址为http://localhost:3000
+  
 * How to run the test suite
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
