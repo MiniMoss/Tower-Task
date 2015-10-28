@@ -50,4 +50,7 @@ group :development, :test do
 
   gem 'pry'
   gem "pry-nav"
+
+  # respec
+  gem 'rspec-rails', '~> 3.0'
 end
