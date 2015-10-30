@@ -5,10 +5,16 @@
 * 数据库使用MySQL，建立名为TowerTask_development的数据库，具体数据库配置见database.yml
 
 * 初始化程序  
-  rake db:migrate    建立数据表  
-  rake db:seeds      初始化events表数据
+  bundle install
+  rake db:migrate RAILS_ENV=development   建立development环境数据表  
+  rake db:seeds RAILS_ENV=development     初始化development环境events表数据
 * 运行程序  
   rails server  
   路由表已经把event_controller#index页面配置为root，地址为http://localhost:3000
-* How to run the test suite
-
+* 运行测试环境  
+  rake db:migrate RAILS_ENV=text       建立test环境数据表  
+  rails generate rspec:install         初始化rspec  
+  rails generate rspec:model event     建立event model测试  
+  bundle exec rspec                    运行测试
+  
+  
